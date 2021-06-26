@@ -16,7 +16,7 @@ promotionRouter
 	.post((req, res, next) => {
 		Promotion.create(req.body)
 			.then((promotion) => {
-				console.log("Promotion Created ", prmotion)
+				console.log("Promotion Created ", promotion)
 				res.statusCode = 200
 				res.setHeader("Content-Type", "application/json")
 				res.json(promotion)
@@ -65,12 +65,12 @@ promotionRouter
 			.then((promotion) => {
 				res.statusCode = 200
 				res.setHeader("Content-Type", "application/json")
-				res.json(partner)
+				res.json(promotion)
 			})
 			.catch((err) => next(err))
 	})
 	.delete((req, res, next) => {
-		Partner.findByIdAndDelete(req.params.promotionId)
+		Promotion.findByIdAndDelete(req.params.promotionId)
 			.then((response) => {
 				res.statusCode = 200
 				res.setHeader("Content-Type", "application/json")
